@@ -1,0 +1,21 @@
+@import "../../scss/variables.scss";
+
+.menu {
+  width: 200px;
+  margin-left: 63px;
+
+  &_item {
+    margin-bottom: 10px;
+
+    &-link {
+      text-decoration: none;
+      color: $mainColor;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .active {
+        font-weight: 600;
+    }
+  }
+}

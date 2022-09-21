@@ -1,0 +1,36 @@
+.product {
+  width: 1200px;
+  margin: 0 auto;
+
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &-item {
+      width: 270px;
+      height: 44 0px;
+      background-color: #ececec;
+      margin: 10px;
+      padding: 5px;
+    }
+  }
+
+  &-title {
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+        font-weight: 600;
+    }
+  }
+
+  &-category {
+    font-size: 14px;
+  }
+}

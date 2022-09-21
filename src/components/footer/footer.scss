@@ -1,0 +1,11 @@
+@import "../../scss/mixin.scss";
+
+.footer {
+    padding: 63px;
+    background-color: #000000;
+
+    .logo {
+        @include logo;
+        color: #ffffff;
+    }
+}

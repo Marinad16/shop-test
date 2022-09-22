@@ -1,34 +1,39 @@
 import React from 'react'
+import { NavLink, useParams } from "react-router-dom";
 import "./menu.scss"
 
 const Menu = () => {
+
+  const setActiveLink = ({ isActive }) =>
+    (isActive ? `menu_item-link active` : `menu_item-link`);
+
   return (
     <div className="menu">
       <ul className="list menu_list">
         <li className="menu_item">
-          <a href="#" className="menu_item-link active">
+          <NavLink to="/all-products" className={setActiveLink}>
             All products
-          </a>
+          </NavLink>
         </li>
         <li className="menu_item">
-          <a href="#" className="menu_item-link">
+          <NavLink to="category/electronics" className={setActiveLink}>
             Electronics
-          </a>
+          </NavLink>
         </li>
         <li className="menu_item">
-          <a href="#" className="menu_item-link">
+          <NavLink to="category/jewelery" className={setActiveLink}>
             Jewelery
-          </a>
+          </NavLink>
         </li>
         <li className="menu_item">
-          <a href="#" className="menu_item-link">
+          <NavLink to="category/mensclothing" className={setActiveLink}>
             Men's clothing
-          </a>
+          </NavLink>
         </li>
         <li className="menu_item">
-          <a href="#" className="menu_item-link">
+          <NavLink to="category/womensclothing" className={setActiveLink}>
             Women's clothing
-          </a>
+          </NavLink>
         </li>
       </ul>
     </div>

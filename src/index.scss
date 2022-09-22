@@ -6,8 +6,20 @@
   color: #333333;
 }
 
+.container {
+  display: flex;
+}
+
 .list {
   text-decoration: none;
   list-style: none;
 }
 
+.loader {
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 100px;
+}

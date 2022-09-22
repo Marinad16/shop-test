@@ -1,10 +1,10 @@
-const fetchAllProducts = async () => {
-  return await fetch("https://fakestoreapi.com/products")
+const fetchAllProducts = () => {
+  return fetch("https://fakestoreapi.com/products")
   .then((res) => res.json());
 };
 
-const fetchCategoryProducts = async (category) => {
-  return await fetch(
+const fetchCategoryProducts = (category) => {
+  return fetch(
     `https://fakestoreapi.com/products/category/${category}`
   ).then((res) => res.json());
 }

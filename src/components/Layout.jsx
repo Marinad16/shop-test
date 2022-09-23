@@ -6,7 +6,7 @@ import "../index.scss"
 
 const Layout = () => {
   return (
-    <>
+    <div className="page-container">
       <header>
           <Header />
       </header>
@@ -21,7 +21,7 @@ const Layout = () => {
       <footer>
           <Footer />
       </footer>
-    </>
+    </div>
   );
 };
 

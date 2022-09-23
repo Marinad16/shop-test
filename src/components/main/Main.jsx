@@ -4,36 +4,47 @@ import ProductsList from "../productsList/ProductsList";
 import View from "../view/View";
 import "./main.scss";
 import { SquareLoader } from "react-spinners";
-
+import Pagination from "../pagination/Pagination";
 
 const Main = () => {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [view, setView] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(4);
 
   const changeView = (view) => {
     setView(view);
-  }
+  };
 
   useEffect(() => {
-    console.log(isLoading);
-    setIsLoading(true);
+    setLoading(true);
     ProductsApi.fetchAllProducts().then((data) => setProducts(data));
-    setIsLoading(false);
+    setLoading(false);
   }, []);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <section className="product">
-      <View change={changeView}
-      />
+      <View change={changeView} />
       <div className="product-wrapper">
-        {isLoading ? (
+        {loading ? (
           <div className="loader">
             <SquareLoader color="#333333" size={100} />
           </div>
         ) : (
-          <ProductsList products={products} view={view}/>
+          <ProductsList products={currentPosts} view={view} />
         )}
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={products.length}
+          paginate={paginate}
+        />
       </div>
     </section>
   );

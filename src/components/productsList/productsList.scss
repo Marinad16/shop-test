@@ -2,14 +2,13 @@
   &_list-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: 35px;
 
     &-item {
       width: 280px;
       height: 440px;
       background-color: #ececec;
-      margin: 0 10px 20px 0;
+      margin: 0 20px 20px 0;
       padding: 5px;
 
       &:hover {

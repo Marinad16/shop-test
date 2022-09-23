@@ -8,7 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const CategoryList = () => {
   const category = useParams();
   const [categoryProducts, setCategoryProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [view, setView] = useState(true);
 
   const changeView = (view) => {
@@ -16,23 +16,27 @@ const CategoryList = () => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
+    setLoading(true);
     ProductsApi.fetchCategoryProducts(category.category).then((data) =>
       setCategoryProducts(data)
     );
-    setIsLoading(false);
+    setLoading(false);
   }, [category]);
 
   return (
     <section className="product">
       <View change={changeView} />
       <div className="product-wrapper">
-        {isLoading ? (
+        {loading ? (
           <div className="loader">
             <ClipLoader color="#333333" size={200} />
           </div>
         ) : (
-          <ProductsList products={categoryProducts} view={view} />
+          <ProductsList
+            products={categoryProducts}
+            view={view}
+            loading={loading}
+          />
         )}
       </div>
     </section>

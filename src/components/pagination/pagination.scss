@@ -1,22 +1,24 @@
 .pagination {
   display: flex;
   justify-content: center;
+}
 
-  a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    border: 1px solid #ececec;
-    margin-left: 5px;
+.page-link {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ececec;
+  margin-left: 5px;
 
-    .active {
-      background-color: #ececec;
-      color: white;
-      border: 1px solid #ececec;
-    }
-
-    &:hover:not(.active) {background-color: #ececec;}
+  &:hover:not(.active-link) {
+    background-color: #ececec;
   }
 }
+
+ .active-link {
+    background-color: #333333;
+    color: white;
+  }
+

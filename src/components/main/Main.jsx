@@ -19,8 +19,11 @@ const Main = () => {
 
   useEffect(() => {
     setLoading(true);
+    console.log(loading)
+    setTimeout(() => {
     ProductsApi.fetchAllProducts().then((data) => setProducts(data));
     setLoading(false);
+    }, 1000)
   }, []);
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -38,7 +41,11 @@ const Main = () => {
             <SquareLoader color="#333333" size={100} />
           </div>
         ) : (
-          <ProductsList products={currentPosts} view={view} />
+          <ProductsList
+            products={currentPosts}
+            view={view}
+            loading={loading}
+          />
         )}
         <Pagination
           postsPerPage={postsPerPage}

@@ -1,17 +1,18 @@
 import React, {useState} from "react";
 import  './view.scss'
 
-const View = () => {
-const [view, setView] = useState(true);
+const View = ({change}) => {
+  const [view, setView] = useState(true);
 
   const changeToGrid = () => {
     setView(true);
+    change(view);
   };
 
   const changeToList = () => {
     setView(false);
+    change(view);
   };
-  console.log(view)
 
   return (
     <div className="view">

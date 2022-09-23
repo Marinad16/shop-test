@@ -3,11 +3,11 @@ import "./productsList.scss";
 
 const ProductsList = ({ view, products }) => {
   return (
-    <ul className={view ? `list product_list-grid` : `list product_list-list`}>
+    <ul className={!view ? `list product_list-grid` : `list product_list-list`}>
       {products.map((product) => (
         <li
           key={product.id}
-          className={view ? `product_list-grid-item` : `product_list-list-item`}
+          className={!view ? `product_list-grid-item` : `product_list-list-item`}
         >
           <img
             src={product.image}

@@ -9,6 +9,11 @@ import { SquareLoader } from "react-spinners";
 const Main = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [view, setView] = useState(true);
+
+  const changeView = (view) => {
+    setView(view);
+  }
 
   useEffect(() => {
     console.log(isLoading);
@@ -19,15 +24,16 @@ const Main = () => {
 
   return (
     <section className="product">
-      <View />
+      <View change={changeView}
+      />
       <div className="product-wrapper">
-        {isLoading ? 
+        {isLoading ? (
           <div className="loader">
             <SquareLoader color="#333333" size={100} />
           </div>
-        : 
-          <ProductsList products={products} />
-        }
+        ) : (
+          <ProductsList products={products} view={view}/>
+        )}
       </div>
     </section>
   );

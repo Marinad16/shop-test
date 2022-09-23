@@ -9,6 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<Main />} />
           <Route path="/all-products" element={<Main />} />
           <Route path="category/:category" element={<CategoryList />} />
           {/* <Route path="*" element={<NotFound />} /> */}

@@ -16,6 +16,11 @@ const Menu = () => {
           </NavLink>
         </li>
         <li className="menu_item">
+          <NavLink to="/liked-products" className={setActiveLink}>
+            Liked products
+          </NavLink>
+        </li>
+        <li className="menu_item">
           <NavLink to="category/electronics" className={setActiveLink}>
             Electronics
           </NavLink>

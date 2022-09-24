@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import ProductsApi from "../../services/ProductsApi";
 import ProductsList from "../productsList/ProductsList";
 import View from "../view/View";
 import "./main.scss";
 import { SquareLoader } from "react-spinners";
 import Pagination from "../pagination/Pagination";
+import handleLikeClick from "../../services/ProductService";
 
 const Main = () => {
   const [products, setProducts] = useState([]);
@@ -19,11 +20,11 @@ const Main = () => {
 
   useEffect(() => {
     setLoading(true);
-    console.log(loading)
+    console.log(loading);
     setTimeout(() => {
-    ProductsApi.fetchAllProducts().then((data) => setProducts(data));
-    setLoading(false);
-    }, 1000)
+      ProductsApi.fetchAllProducts().then((data) => setProducts(data));
+      setLoading(false);
+    }, 1000);
   }, []);
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -44,7 +45,7 @@ const Main = () => {
           <ProductsList
             products={currentPosts}
             view={view}
-            loading={loading}
+            handleLikeClick={handleLikeClick}
           />
         )}
         <Pagination

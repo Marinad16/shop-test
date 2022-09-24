@@ -4,6 +4,7 @@ import ProductsApi from "../../services/ProductsApi";
 import View from "../view/View";
 import ProductsList from "../productsList/ProductsList";
 import ClipLoader from "react-spinners/ClipLoader";
+import handleLikeClick from "../../services/ProductService";
 
 const CategoryList = () => {
   const category = useParams();
@@ -35,7 +36,7 @@ const CategoryList = () => {
           <ProductsList
             products={categoryProducts}
             view={view}
-            loading={loading}
+            handleLikeClick={handleLikeClick}
           />
         )}
       </div>

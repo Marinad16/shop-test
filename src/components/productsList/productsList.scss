@@ -110,14 +110,28 @@
     }
   }
 
-  &-category {
-    font-size: 14px;
+  &_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    &-category {
+      font-size: 14px;
 
-    @media (max-width: 1470px) {
-      width: 160px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      @media (max-width: 1470px) {
+        width: 160px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &-icon {
+      cursor: pointer;
+
+      &:hover {
+        fill: #eb7676;
+      }
     }
   }
 }

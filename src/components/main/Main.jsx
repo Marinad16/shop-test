@@ -12,7 +12,7 @@ const Main = () => {
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(4);
+  const [productPerPage] = useState(4);
 
   const changeView = (view) => {
     setView(view);
@@ -20,15 +20,12 @@ const Main = () => {
 
   useEffect(() => {
     setLoading(true);
-    console.log(loading);
-    setTimeout(() => {
       ProductsApi.fetchAllProducts().then((data) => setProducts(data));
       setLoading(false);
-    }, 1000);
   }, []);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const indexOfLastPost = currentPage * productPerPage;
+  const indexOfFirstPost = indexOfLastPost - productPerPage;
   const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -49,8 +46,8 @@ const Main = () => {
           />
         )}
         <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={products.length}
+          productPerPage={productPerPage}
+          totalProducts={products.length}
           paginate={paginate}
         />
       </div>

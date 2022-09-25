@@ -12,8 +12,11 @@ const LikedProducts = () => {
 
   useEffect(() => {
     const liked = JSON.parse(localStorage.getItem("liked"));
-    setLikedProducts(liked);
-  }, [likedProducts]);
+    if (liked) {
+      setLikedProducts(liked);
+    }
+  }, []);
+  
 
   const handleLikeClick = (product) => {
     let liked = JSON.parse(localStorage.getItem("liked"));

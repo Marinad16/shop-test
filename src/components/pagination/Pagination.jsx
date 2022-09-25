@@ -2,16 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./pagination.scss";
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+const Pagination = ({ productPerPage, totalProducts, paginate }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalProducts / productPerPage); i++) {
     pageNumbers.push(i);
   }
 
-//   const setActiveLink = ({ isActive }) =>
-//     isActive ? `page-link active-link` : `page-link`;
-    
+  //   const setActiveLink = ({ isActive }) =>
+  //     isActive ? `page-link active-link` : `page-link`;
 
   return (
     <nav>

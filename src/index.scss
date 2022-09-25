@@ -14,11 +14,12 @@
 .container {
   display: flex;
   padding-bottom: 200px;
+  margin: 0 63px;
 
   @media (max-width: 1100px) {
     flex-direction: column;
-    margin: 0 auto;
-    width: 800px;
+    margin: 0;
+    width: 100%;
   }
 }
 

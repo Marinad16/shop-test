@@ -10,13 +10,8 @@ import handleLikeClick from "../../services/ProductService";
 const Main = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [view, setView] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(4);
-
-  const changeView = (view) => {
-    setView(view);
-  };
 
   useEffect(() => {
     setLoading(true);
@@ -32,7 +27,7 @@ const Main = () => {
 
   return (
     <section className="product">
-      <View change={changeView} />
+      <View />
       <div className="product-wrapper">
         {loading ? (
           <div className="loader">
@@ -41,7 +36,6 @@ const Main = () => {
         ) : (
           <ProductsList
             products={currentPosts}
-            view={view}
             handleLikeClick={handleLikeClick}
           />
         )}

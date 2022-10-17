@@ -1,17 +1,18 @@
 import React, {useState} from "react";
 import  './view.scss'
+import {useDispatch, useSelector} from "react-redux";
+import {toggleView} from "../../redux/userSlice";
 
-const View = ({change}) => {
-  const [view, setView] = useState(false);
+const View = () => {
+  const view = useSelector(state => state.listView.view)
+  const dispatch = useDispatch();
 
   const changeToGrid = () => {
-    setView(false);
-    change(view);
+    dispatch(toggleView(view))
   };
 
   const changeToList = () => {
-    setView(true);
-    change(view);
+    dispatch(toggleView(view))
   };
 
   return (

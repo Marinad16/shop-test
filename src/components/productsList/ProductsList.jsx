@@ -1,14 +1,17 @@
 import React  from "react";
 import "./productsList.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useSelector} from "react-redux";
 
-const ProductsList = ({ view, products, handleLikeClick }) => {
+const ProductsList = ({ products, handleLikeClick }) => {
+  const view = useSelector(state => state.listView.view)
+
   return (
-    <ul className={view ? `list product_list-grid` : `list product_list-list`}>
+    <ul className={!view ? `list product_list-grid` : `list product_list-list`}>
       {products.map((product) => (
         <li
           key={product.id}
-          className={view ? `product_list-grid-item` : `product_list-list-item`}
+          className={!view ? `product_list-grid-item` : `product_list-list-item`}
         >
           <div className="image-wrapper">
             <img

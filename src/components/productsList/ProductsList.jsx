@@ -1,10 +1,13 @@
 import React  from "react";
 import "./productsList.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useSelector} from "react-redux";
+import {useBasket} from "../../services/BasketProvider";
 
 const ProductsList = ({ products, handleLikeClick }) => {
   const view = useSelector(state => state.listView.view)
+  const { addToBasket } = useBasket();
 
   return (
     <ul className={!view ? `list product_list-grid` : `list product_list-list`}>
@@ -34,6 +37,10 @@ const ProductsList = ({ products, handleLikeClick }) => {
             <FavoriteBorderIcon
               className="product_content-icon"
               onClick={()=>handleLikeClick(product)}
+            />
+            <AddShoppingCartIcon
+                className="product_content-icon"
+                onClick={()=>addToBasket(product)}
             />
           </div>
         </li>

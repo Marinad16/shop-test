@@ -1,0 +1,56 @@
+.basket {
+  min-height: calc(100vh - 204px);
+  width: 100%;
+  &_title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  &-delete {
+    margin: 0 0 0 auto;
+    width: fit-content;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: text-decoration .4s ease-in-out;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border: 1px solid lightgrey;
+    padding: 5px;
+    div {
+      display: flex;
+      align-items: center;
+    }
+    &-img {
+      width: 100px;
+      height: 100px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-delete {
+      margin-left: 20px;
+      cursor: pointer;
+      transition: fill .4s ease-in-out;
+      height: 50px !important;
+      width: 30px !important;
+      &:hover {
+        fill: red;
+      }
+    }
+  }
+  &_total {
+    font-size: 24px;
+    margin: 0 0 0 auto;
+    width: fit-content;
+  }
+}

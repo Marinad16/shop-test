@@ -2,11 +2,40 @@
 
 .header {
     width: 100%;
-    padding: 70px 0;
-    padding-left: 63px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .logo {
         @include logo;
         color: #333333;
+    }
+}
+
+.basket {
+    &-link {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        text-decoration: none;
+        p {
+            font-size: 20px;
+        }
+    }
+    &-count {
+        position: relative;
+        span {
+            background-color: cornflowerblue;
+            border-radius: 50%;
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 12px;
+            color: white;
+            text-align: center;
+        }
     }
 }
